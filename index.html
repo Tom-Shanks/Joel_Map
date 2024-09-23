@@ -1,272 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-measure.css">
-        <style>
-        #map {
-            width: 1039px;
-            height: 819px;
-        }
-        </style>
-        <title></title>
-    </head>
-    <body>
-        <div id="map">
+<head>
+    <meta charset="UTF-8">
+    <title>Unraveling the Mystery: Was Jan Pregnant During "Dinner Party"?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Unraveling the Mystery: Was Jan Pregnant During "Dinner Party"?</h1>
+
+<p>The "Dinner Party" episode of <em>The Office</em> has left fans both amused and puzzled. Amidst the chaotic evening hosted by Michael and Jan, a lingering question remains: Was Jan pregnant during this unforgettable night? Let's delve into the timeline and uncover the truth.</p>
+
+<h2>The Intriguing Timeline</h2>
+
+<div class="timeline">
+    <div class="event">
+        <h3>"Fun Run" (Season 4, Episodes 1 & 2)</h3>
+        <p>A seemingly ordinary day turns eventful when Michael hits Meredith with his car. The office organizes a fun run, marking the start of new dynamics.</p>
+        <button class="modal-button" onclick="toggleModal('modal1')">See Details</button>
+        <div id="modal1" class="modal-content">
+            <p><strong>Clues:</strong> Warm weather and the beginning of Pam and Jim's public relationship suggest it's late summer or early fall.</p>
         </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet-measure.js"></script>
-        <script src="data/ProdigyCoffee_1.js"></script>
-        <script src="data/CityPark_2.js"></script>
-        <script src="data/TheCubeSchool_3.js"></script>
-        <script>
-        var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[39.7381048724893,-104.96596862695992],[39.77692232808438,-104.90187805424193]]);
-        var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
-        var measureControl = new L.Control.Measure({
-            position: 'topleft',
-            primaryLengthUnit: 'meters',
-            secondaryLengthUnit: 'kilometers',
-            primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'hectares'
-        });
-        measureControl.addTo(map);
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .className += ' fas fa-ruler';
-        var bounds_group = new L.featureGroup([]);
-        function setBounds() {
-        }
-        map.createPane('pane_GoogleMaps_0');
-        map.getPane('pane_GoogleMaps_0').style.zIndex = 400;
-        var layer_GoogleMaps_0 = L.tileLayer('http://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleMaps_0',
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 1,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 22
-        });
-        layer_GoogleMaps_0;
-        map.addLayer(layer_GoogleMaps_0);
-        function pop_ProdigyCoffee_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['description'] !== null ? autolinker.link(feature.properties['description'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? autolinker.link(feature.properties['altitudeMode'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+    </div>
 
-        function style_ProdigyCoffee_1_0() {
-            return {
-                pane: 'pane_ProdigyCoffee_1',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ProdigyCoffee_1');
-        map.getPane('pane_ProdigyCoffee_1').style.zIndex = 401;
-        map.getPane('pane_ProdigyCoffee_1').style['mix-blend-mode'] = 'normal';
-        var layer_ProdigyCoffee_1 = new L.geoJson(json_ProdigyCoffee_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ProdigyCoffee_1',
-            layerName: 'layer_ProdigyCoffee_1',
-            pane: 'pane_ProdigyCoffee_1',
-            onEachFeature: pop_ProdigyCoffee_1,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_ProdigyCoffee_1_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_ProdigyCoffee_1);
-        map.addLayer(layer_ProdigyCoffee_1);
-        function pop_CityPark_2(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['description'] !== null ? autolinker.link(feature.properties['description'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? autolinker.link(feature.properties['altitudeMode'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+    <div class="event">
+        <h3>"Branch Wars" (Season 4, Episode 10)</h3>
+        <p>Michael, Dwight, and Jim embark on a mission to the Utica branch, leading to unexpected confrontations.</p>
+        <button class="modal-button" onclick="toggleModal('modal2')">See Details</button>
+        <div id="modal2" class="modal-content">
+            <p><strong>Clues:</strong> Autumn leaves and light jackets indicate the season is fall.</p>
+        </div>
+    </div>
 
-        function style_CityPark_2_0() {
-            return {
-                pane: 'pane_CityPark_2',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_CityPark_2');
-        map.getPane('pane_CityPark_2').style.zIndex = 402;
-        map.getPane('pane_CityPark_2').style['mix-blend-mode'] = 'normal';
-        var layer_CityPark_2 = new L.geoJson(json_CityPark_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CityPark_2',
-            layerName: 'layer_CityPark_2',
-            pane: 'pane_CityPark_2',
-            onEachFeature: pop_CityPark_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_CityPark_2_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_CityPark_2);
-        map.addLayer(layer_CityPark_2);
-        function pop_TheCubeSchool_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['description'] !== null ? autolinker.link(feature.properties['description'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? autolinker.link(feature.properties['altitudeMode'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+    <div class="event">
+        <h3>"Dinner Party" (Season 4, Episode 13)</h3>
+        <p>The infamous evening where tensions rise, glasses shatter, and relationships are tested.</p>
+        <button class="modal-button" onclick="toggleModal('modal3')">See Details</button>
+        <div id="modal3" class="modal-content">
+            <p><strong>Clues:</strong> Mild weather and longer daylight hint at early spring. No holiday decorations suggest it's not winter.</p>
+        </div>
+    </div>
 
-        function style_TheCubeSchool_3_0() {
-            return {
-                pane: 'pane_TheCubeSchool_3',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_TheCubeSchool_3');
-        map.getPane('pane_TheCubeSchool_3').style.zIndex = 403;
-        map.getPane('pane_TheCubeSchool_3').style['mix-blend-mode'] = 'normal';
-        var layer_TheCubeSchool_3 = new L.geoJson(json_TheCubeSchool_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_TheCubeSchool_3',
-            layerName: 'layer_TheCubeSchool_3',
-            pane: 'pane_TheCubeSchool_3',
-            onEachFeature: pop_TheCubeSchool_3,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_TheCubeSchool_3_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_TheCubeSchool_3);
-        map.addLayer(layer_TheCubeSchool_3);
-        var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/TheCubeSchool_3.png" /> The Cube School ': layer_TheCubeSchool_3,'<img src="legend/CityPark_2.png" /> City Park': layer_CityPark_2,'<img src="legend/ProdigyCoffee_1.png" /> Prodigy Coffee ': layer_ProdigyCoffee_1,"Google Maps": layer_GoogleMaps_0,}).addTo(map);
-        setBounds();
-        </script>
-    </body>
+    <div class="event">
+        <h3>"Goodbye, Toby" (Season 4, Episodes 18 & 19)</h3>
+        <p>Toby bids farewell to the office, and Jan drops a bombshell that changes everything.</p>
+        <button class="modal-button" onclick="toggleModal('modal4')">See Details</button>
+        <div id="modal4" class="modal-content">
+            <p><strong>Clues:</strong> Set at the end of the school year, late May or early June. Jan reveals she's four months pregnant.</p>
+        </div>
+    </div>
+</div>
+
+<h2>The Evidence Unfolds</h2>
+
+<p>Jan's announcement of being four months pregnant in late May suggests conception occurred in late January or early February. Considering "Dinner Party" likely takes place in March or early April, Jan would have been one to two months pregnant during the episode.</p>
+
+<h2>Subtle Hints or Overlooked Signs?</h2>
+
+<p>Despite the timeline alignment, the episode doesn't explicitly indicate Jan's pregnancy. However, certain behaviors and details might offer insights.</p>
+
+<div class="event">
+    <h3>Jan's Wine Consumption</h3>
+    <button class="modal-button" onclick="toggleModal('modal5')">Explore</button>
+    <div id="modal5" class="modal-content">
+        <p>Jan is seen drinking wine throughout the evening. This could mean:</p>
+        <ul>
+            <li>She was unaware of her pregnancy.</li>
+            <li>She chose to keep it a secret.</li>
+            <li>A potential oversight in the storyline.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="event">
+    <h3>Erratic Behavior</h3>
+    <button class="modal-button" onclick="toggleModal('modal6')">Explore</button>
+    <div id="modal6" class="modal-content">
+        <p>Jan displays heightened emotions and mood swings. While this aligns with her character, could it also hint at early pregnancy symptoms?</p>
+    </div>
+</div>
+
+<h2>The Final Verdict</h2>
+
+<p>Based on the timeline and subtle clues, it's plausible that Jan was pregnant during the "Dinner Party." While the episode doesn't confirm it outright, the evidence paints a compelling picture.</p>
+
+<h2>Rewatch with a New Perspective</h2>
+
+<p>Next time you watch "Dinner Party," consider this hidden layer. It might just change how you perceive the interactions and underlying tensions of that unforgettable evening.</p>
+
+<script src="script.js"></script>
+
+</body>
 </html>
